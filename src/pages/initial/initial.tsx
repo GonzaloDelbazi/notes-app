@@ -1,3 +1,4 @@
+import './initial.scss';
 
 const InitialPage = () => {
 
