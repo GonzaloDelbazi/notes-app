@@ -1,26 +1,49 @@
-@import '../src/styless/global.scss';
+@import '../../../styles/global.scss';
+@import '../../../styles/keyframes.scss';
+
+
+body {
+  background: linear-gradient(90deg, $pastel-color-blue 0%, $pastel-color-cyan 40%, $pastel-color-pink 75%, $pastel-color-red 100%);
+}
 
 .title-initial-page {
   font-size: 50px;
 }
 
-.login-sign-box {
-  border: 0.5rem solid $pastel-color-red;
-  border-radius: 0.5rem;
+.box {
   width: 20rem;
   height: 20rem;
   display: flex;
   flex-direction: column;
-  background-color: $pastel-color-pink;
   justify-content: center;
   align-items: center;
-  color: $pastel-color-red;
-  transition: width, height 0.5s;
+  animation: initialStateBox 0.5s;
 }
 
-.login-sign-box:hover {
-  width: 21rem;
-  height: 21rem;
+.login-box {
+  @extend .box;
+  border: 0.5rem solid $pastel-color-red;
+  border-radius: 0.5rem;
+  background-color: $pastel-color-pink;
+  color: $pastel-color-red;
+
+}
+
+.sign-box {
+  @extend .box;
+  border: 0.5rem solid $pastel-color-blue;
+  border-radius: 0.5rem;
+  background-color: $pastel-color-cyan;
+  color: $pastel-color-blue;
+}
+
+.login-box:hover, .sign-box:hover {
+  transform: translateY(1rem);
+  transition: transform .2s;
+}
+.login-box::after, .sign-box::after {
+  transform: translateY(-1rem);
+  transition: transform .2s;
 }
 
 .form {
