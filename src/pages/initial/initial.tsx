@@ -4,7 +4,7 @@ const InitialPage = () => {
 
   return (
     <>
-      <div>
+      <div className='title-box'>
         <h1 className="title-initial-page">Notes App</h1>
       </div>
       <div className="initial-boxes">
