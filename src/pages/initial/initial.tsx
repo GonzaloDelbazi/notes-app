@@ -1,4 +1,4 @@
-import './styles/initial.scss';
+import './initial.scss';
 
 const InitialPage = () => {
 

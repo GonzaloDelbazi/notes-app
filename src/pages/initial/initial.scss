@@ -1,5 +1,5 @@
-@import '../../../styles/global.scss';
-@import '../../../styles/keyframes.scss';
+@import '../../styles/global.scss';
+@import '../../styles/keyframes.scss';
 
 
 body {
@@ -103,6 +103,7 @@ body {
 @include mobile {
   .initial-boxes {
     display: block;
+    width: 100%;
   }
 
   .login-sign-box {
@@ -119,6 +120,10 @@ body {
   .login-sign-box:hover {
     width: auto;
     height: auto;
+  }
+  .box{
+    margin: auto auto 5vh auto;
+    height: 15vh;
   }
 }
 
@@ -151,6 +156,7 @@ body {
 
   .initial-boxes {
     width: 80%;
+    margin-top: 2vh;
   }
 }
 
