@@ -101,6 +101,10 @@ body {
 }
 
 @include mobile {
+  body {
+    background: linear-gradient(180deg, $pastel-color-blue 0%, $pastel-color-cyan 40%, $pastel-color-pink 75%, $pastel-color-red 100%) no-repeat;
+    height: 100vh;
+  }
   .initial-boxes {
     display: block;
     width: 100%;
