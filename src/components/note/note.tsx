@@ -4,6 +4,7 @@ const NoteComponent = () => {
   return (
     <>
       <div className="modal">
+      <i className='fas fa-xmark pointer'></i>
         <div className="title-container">
           <div className="modal-title">Este es el titulo de la nota</div>
         </div>
