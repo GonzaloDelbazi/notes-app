@@ -1,32 +1,28 @@
 import './home.scss';
+import NoteComponent from '../../components/note/note';
+import { useState } from 'react';
 
-const HomePage = () => {
+export const HomePage = () => {
+  
+  const [viewModal, setViewModal] = useState(false);
 
-  let isView: boolean = false;
+  const addNote = () => {
+    setViewModal(view => view = true);
+  }
 
   return (
     <>
       <div className="button-container">
-        <button className="add-note-btn pointer">Agregar nota</button>
+        <button className="add-note-btn pointer" onClick={addNote}>Agregar nota</button>
       </div>
 
-      <div className="modal">
-        <div className="title-container">
-          <div className="modal-title">Este es el titulo de la nota</div>
-        </div>
-        <div className="description-container">
-          <div className="modal-description">Esta es toda la descripcion de la nota</div>
-        </div>
-        <div className="button-container-save">
-        <button className="save-btn pointer">Cancelar</button>
-        <button className="save-btn pointer">Guardar</button>
-      </div>
-      </div>
-
-
+      {
+        viewModal && (<>{<NoteComponent />}</>)
+      }
 
     </>
   )
 };
+
 
 export default HomePage;

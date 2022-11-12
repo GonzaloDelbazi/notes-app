@@ -1,0 +1,74 @@
+@import '../../styles/global.scss';
+
+.modal {
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    width: 40vw;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #e1e1e1;
+}
+
+.modal-title {
+    font-size: 30px;
+}
+
+.title-container {
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px;
+    width: 80%;
+    margin-bottom: 2rem;
+}
+
+.description-container {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.button-container-save {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.save-btn {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+
+@include mobile {
+    .modal {
+        width: 96vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+    }
+
+    .button-container-save {
+        position: fixed;
+        bottom: 0;
+        display: block;
+    }
+
+    .save-btn {
+        padding: 0;
+        border-radius: 4px;
+        width: 90vw;
+        height: 40px;
+    }
+
+    .title-container {
+        margin: 2rem 0;
+        width: 97%;
+    }
+    .description-container {
+        height: 55vh;
+    }
+}
