@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import './note.scss';
+import { NoteModel } from '../../models/NoteModel';
 
-interface Note {
-  title: string;
-  description: string;
-}
-
-const NoteComponent = (props:Note) => {
+const NoteComponent = (props:NoteModel) => {
 
   const [isOpen, setIsOpen] = useState(false);
   
