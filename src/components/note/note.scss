@@ -1,36 +1,67 @@
 @import '../../styles/global.scss';
 
-.modal {
+.base-modal {
     text-align: center;
     margin: auto;
+    border-radius: 4px;
     background-color: white;
-    width: 40vw;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #e1e1e1;
 }
 
-.modal-title {
-    font-size: 30px;
+.modal {
+    @extend .base-modal;
+    width: 40vw;
+    animation: openNote 0.5s ease-in-out;
+}
+
+.header-note {
+    display: flex;
+    align-items: center;
+    background-color: rgb(233, 233, 233);
+    width: 100%;
+    border-radius: 4px 4px 0px 0px; 
+    height: 2rem;
 }
 
 .title-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-container {
+    border-top: 1px solid #a7a7a7;
+    border-radius: 15px 15px 4px 4px; 
     background-color: white;
-    border-radius: 4px;
-    padding: 5px;
-    width: 80%;
-    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+}
+
+.span-title {
+    text-align: start;
+    width: 94%;
+    font-size: 1rem;
 }
 
 .description-container {
     background-color: white;
     border-radius: 4px;
     padding: 10px;
+    margin-top: 1rem
+}
+
+.mini-modal {
+    @extend .base-modal;
+    margin: 0;
+    height: 12rem;
+    border: 0.1rem solid $pastel-color-light-green;
+    width: 8rem;
+    animation: initialStateBox 0.5s ease-in-out;
 }
 
 .button-container-save {
     text-align: center;
     display: flex;
+    padding: 10px;
     justify-content: space-between;
 }
 

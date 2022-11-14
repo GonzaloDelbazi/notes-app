@@ -17,7 +17,7 @@ export const HomePage = () => {
       </div>
 
       {
-        viewModal && (<>{<NoteComponent />}</>)
+        viewModal && (<>{<NoteComponent title="MI TITULO" description={"lorem description"}/>}</>)
       }
 
     </>
