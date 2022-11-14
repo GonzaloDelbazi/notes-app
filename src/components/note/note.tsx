@@ -1,21 +1,47 @@
+import { useState } from 'react';
 import './note.scss';
+import { NoteModel } from '../../models/NoteModel';
 
-const NoteComponent = () => {
+const NoteComponent = (props:NoteModel) => {
+
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const dismiss = () =>{
+    setIsOpen(false);
+  }
+
+  const openModal = () =>{
+    setIsOpen(true);
+  }
+
   return (
     <>
-      <div className="modal">
-      <i className='fas fa-xmark pointer'></i>
-        <div className="title-container">
-          <div className="modal-title">Este es el titulo de la nota</div>
+      { !isOpen ? 
+      <div className='mini-modal pointer' onClick={openModal}>
+       <h4>{props.title}</h4> 
+      </div>
+       :
+      <div className="modal" >
+
+        <div className='header-note'>
+          <div className="title-container">
+            <span className='span-title'>{props.title}</span>
+            <i className='fas fa-xmark pointer' onClick={dismiss}></i>
+          </div>
         </div>
-        <div className="description-container">
-          <div className="modal-description">Esta es toda la descripcion de la nota</div>
-        </div>
-        <div className="button-container-save">
-          <button className="save-btn pointer">Cancelar</button>
-          <button className="save-btn pointer">Guardar</button>
+
+        <div className="body-container">
+          <div className="description-container">
+
+          <div className="modal-description">{props.description}</div>
+          </div>
+          <div className="button-container-save">
+            <button className="save-btn pointer" onClick={dismiss}>Cancelar</button>
+            <button className="save-btn pointer">Guardar</button>
+          </div>
         </div>
       </div>
+      }
     </>
   )
 };

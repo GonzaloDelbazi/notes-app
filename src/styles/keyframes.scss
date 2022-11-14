@@ -8,3 +8,12 @@
         transform: translateY(0rem);
 	}
 }
+
+@keyframes openNote {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+} 

@@ -15,8 +15,7 @@ export const HomePage = () => {
     
     const fetchData = async () => {
 
-      const dataNotes = await notes.getNotes();
-      // Aca se ve la data mockeada
+      const dataNotes = await notes.get();
       console.log(dataNotes)
     }
     fetchData();
