@@ -1,6 +1,7 @@
 import './home.scss';
 import NoteComponent from '../../components/note/note';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import notes from '../../apis/notes';
 
 export const HomePage = () => {
   
@@ -8,7 +9,19 @@ export const HomePage = () => {
 
   const addNote = () => {
     setViewModal(view => view = true);
+    
   }
+  useEffect(() => {
+    
+    const fetchData = async () => {
+
+      const dataNotes = await notes.getNotes();
+      // Aca se ve la data mockeada
+      console.log(dataNotes)
+    }
+    fetchData();
+  
+  })
 
   return (
     <>
@@ -17,7 +30,7 @@ export const HomePage = () => {
       </div>
 
       {
-        viewModal && (<>{<NoteComponent />}</>)
+        viewModal && (<>{<NoteComponent title="MI TITULO" description={"lorem description"}/>}</>)
       }
 
     </>
