@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './note.scss';
-
-// const isOpen = false;
 
 interface Note {
   title: string;
@@ -10,12 +8,20 @@ interface Note {
 
 const NoteComponent = (props:Note) => {
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const dismiss = () =>{
+    setIsOpen(false);
+  }
+
+  const openModal = () =>{
+    setIsOpen(true);
+  }
 
   return (
     <>
       { !isOpen ? 
-      <div className='mini-modal' onClick={()=>setIsOpen(true)}>
+      <div className='mini-modal pointer' onClick={openModal}>
        <h4>{props.title}</h4> 
       </div>
        :
@@ -24,7 +30,7 @@ const NoteComponent = (props:Note) => {
         <div className='header-note'>
           <div className="title-container">
             <span className='span-title'>{props.title}</span>
-            <i className='fas fa-xmark pointer' onClick={()=> setIsOpen(false)}></i>
+            <i className='fas fa-xmark pointer' onClick={dismiss}></i>
           </div>
         </div>
 
@@ -34,7 +40,7 @@ const NoteComponent = (props:Note) => {
           <div className="modal-description">{props.description}</div>
           </div>
           <div className="button-container-save">
-            <button className="save-btn pointer">Cancelar</button>
+            <button className="save-btn pointer" onClick={dismiss}>Cancelar</button>
             <button className="save-btn pointer">Guardar</button>
           </div>
         </div>
