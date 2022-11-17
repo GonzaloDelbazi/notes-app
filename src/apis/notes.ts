@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const notes = {
+const apiNotes = {
 
     async get(){
         //Iniciar json server pegando a notes.json
@@ -10,4 +10,4 @@ const notes = {
 
 }
 
-export default notes;
+export default apiNotes;
