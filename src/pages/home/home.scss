@@ -10,3 +10,11 @@
     margin: 2rem 0;
     text-align: center;
 }
+
+.notes-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+}
