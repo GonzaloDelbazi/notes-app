@@ -8,6 +8,7 @@ body {
 .title-box {  
   display: flex;
   justify-content: center;
+  height: 30%;
 }
 
 .title-box h1 {
@@ -40,11 +41,12 @@ body {
 .title-initial-page {
   width: auto;
   font-size: 50px;
+  color: #fff;
 }
 
 .box {
-  width: 15rem;
-  height: 15rem;
+  width: 20rem;
+  height: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,9 +96,27 @@ body {
 
 .initial-boxes {
   display: flex;
-  justify-content: space-between;
-  width: 70%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 70%;
   margin: auto;
+}
+
+.content { 
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.content-menu {
+  width: 35%;
+  background-color: rgb(37, 37, 37);
+}
+
+.content-animation {
+  width: 65%;
 }
 
 @include mobile {
