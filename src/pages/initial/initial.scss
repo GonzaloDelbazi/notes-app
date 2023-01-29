@@ -117,6 +117,8 @@ body {
 
 .content-animation {
   width: 65%;
+  display: flex;
+  align-items: center;
 }
 
 @include mobile {
@@ -197,4 +199,93 @@ body {
   .initial-boxes {
     width: 90%;
   }
+}
+
+.black-hole{
+  width: 180px;
+  height: 180px;
+  background-color: rgb(37, 37, 37);
+  margin: auto;
+  border-radius: 50%;
+  border: 1px solid #cceff7;
+  box-shadow: 6px 6px 35px 20px #84b6f4;
+  -webkit-animation: rotate 10s linear infinite;
+}
+
+
+@keyframes rotate {
+  0% {
+    box-shadow: 6px 6px 35px 10px #84b6f4;
+  }
+
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 10px 10px 35px 10px #AFE4FE;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 6px 6px 35px 10px #84b6f4;
+  }
+}
+
+.note-blue-1{
+  width: 50px;
+  height: 50px;
+  background-color: $pastel-color-blue;
+  position: absolute;
+  top: 45vh;
+  border-radius: 50%;
+  -webkit-animation: note-1 9s linear infinite;
+}
+
+.note-blue-2{
+  width: 50px;
+  height: 50px;
+  background-color: $pastel-color-blue;
+  position: absolute;
+  top: -38vh;
+  border-radius: 50%;
+  -webkit-animation: note-1 5s linear infinite;
+}
+
+.note-red-1{
+  width: 50px;
+  height: 50px;
+  background-color: $pastel-color-red;
+  position: absolute;
+  top: -42vh;
+  border-radius: 50%;
+  -webkit-animation: note-1 7s linear infinite;
+}
+
+.note-red-2{
+  width: 50px;
+  height: 50px;
+  background-color: $pastel-color-red;
+  position: absolute;
+  top: -30vh;
+  border-radius: 50%;
+  -webkit-animation: note-1 12s linear infinite;
+}
+
+
+@keyframes note-1 {
+
+  0%{
+    opacity: 0;
+  }
+
+  10%{
+    opacity: 1;
+  }
+  
+  90%{
+    transform: scale(0.4);
+  }
+
+  100% {
+    transform: scale(0.005);
+    top: 0px;
+  }
+
 }

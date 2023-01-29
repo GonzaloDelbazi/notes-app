@@ -17,7 +17,14 @@ const InitialPage = () => {
             </div>
           </div>
         </div>
-        <div className="content-animation"></div>
+        <div className="content-animation">
+          <div className="black-hole">
+            <div className="note-blue-1"></div>
+            <div className="note-red-1"></div>
+            <div className="note-blue-2"></div>
+            <div className="note-red-2"></div>
+          </div>
+        </div>
       </div>
     </>
   );
