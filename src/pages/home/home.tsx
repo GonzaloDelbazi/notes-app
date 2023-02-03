@@ -1,8 +1,12 @@
 import './home.scss';
 import NoteComponent from '../../components/note/note';
+import HomePageView from '../../pages/home/homeView';
 import { useState, useEffect } from 'react';
 import apiNotes from '../../apis/notes';
 import { NoteModel } from '../../models/NoteModel';
+import { auth } from '../../firebase-config';
+import { store } from '../../redux/store';
+import { redirect } from 'react-router-dom';
 
 export const HomePage = () => {
   
@@ -11,8 +15,19 @@ export const HomePage = () => {
 
   const addNote = () => {
     setViewModal(view => view = true);
-    
   }
+  
+  const logOut = async () => {
+    const result = await auth
+    .signOut()
+    .then((resp) => {
+      console.log("SESION CERRADA");
+      store.dispatch({ type: "@user/deleted" });
+      return redirect("/");
+    })
+    .catch((err) => console.log(err));
+  };
+  
   useEffect(() => {
     
     const fetchData = async () => {
@@ -26,21 +41,11 @@ export const HomePage = () => {
 
   return (
     <>
-      <div className="button-container">
-        <button className="add-note-btn pointer" onClick={addNote}>Agregar nota</button>
-      </div>
-      <div className='notes-box'>
-      {
-        function() {
-          let arrNotes: JSX.Element[] = [];
-        notes.forEach((note, idx)=>{
-          arrNotes.push(<NoteComponent key={idx} title={note.title} description={note.description} />);
-        });
-        return arrNotes;
-      }()
-    }
-    </div>
-
+      <HomePageView
+        notes={notes}
+        addNote={addNote}
+        logOut={logOut}
+      />
     </>
   )
 };

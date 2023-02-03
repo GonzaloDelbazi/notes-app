@@ -2,7 +2,7 @@ import InitialView from "./initialView";
 import { google } from "../../firebase-config";
 import { getAuth, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import { store } from "../../store";
+import { store } from "../../redux/store";
 
 const Initial = () => {
   
@@ -20,25 +20,12 @@ const Initial = () => {
       console.log(err);
     });
   };
-  
-  // Mover el logOut a otro lado no tiene sentido tenerlo aca
-  const logOut = async () => {
-    console.log(user);
-    const auth = getAuth();
-    const result = await auth
-    .signOut()
-    .then((resp) => {
-      console.log("SESION CERRADA");
-      store.dispatch({ type: "@user/deleted" });
-    })
-    .catch((err) => console.log(err));
-  };
 
 
   return (
     <InitialView
       logIn={logIn} 
-      logOut={logOut} 
+      logOut={()=> console.log('hola')} 
     />
   )
 };
