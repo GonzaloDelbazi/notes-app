@@ -23,7 +23,6 @@ const NoteComponent = ({note}:any) => {
   const modifyNote = async (e: any) => {
     setLocalNote({...localNote, description: e.target.value});
     const resp = await apiNotes.updateNote(localNote);
-    console.log(resp);
   }
 
   return (

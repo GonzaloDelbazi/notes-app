@@ -6,12 +6,16 @@ import apiNotes from '../../apis/notes';
 import { NoteModel } from '../../models/NoteModel';
 import { auth } from '../../firebase-config';
 import { store } from '../../redux/store';
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { resetUser } from '../../redux/states/user';
 
 export const HomePage = () => {
   
   const [viewModal, setViewModal] = useState(false);
   const [notes, setNotes] = useState<Array<NoteModel>>([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const addNote = () => {
     setViewModal(view => view = true);
@@ -22,8 +26,8 @@ export const HomePage = () => {
     .signOut()
     .then((resp) => {
       console.log("SESION CERRADA");
-      store.dispatch({ type: "@user/deleted" });
-      return redirect("/");
+      dispatch(resetUser());
+      return navigate(0);
     })
     .catch((err) => console.log(err));
   };
