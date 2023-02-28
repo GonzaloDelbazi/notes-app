@@ -35,5 +35,14 @@
       "isEditable": false,
       "isEditMode": false
     }
+  ],
+  "users": [
+    {
+      "userName": "ElPucho",
+      "name": "Gonzalo Delbazi",
+      "email": "gonzalodelbazi@gmail.com",
+      "password": "gonza1998",
+      "id": "2e28d948-8bee-4022-9ffc-9630fda61c3d"
+    }
   ]
 }

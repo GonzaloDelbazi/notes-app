@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UserInfo } from "../../models/User.model";
+import { UserPublicData } from "../../models/User.model";
 
-export const EmptyUserState: UserInfo = {
+export const EmptyUserState: UserPublicData = {
     id: 0,
     name: "",
+    userName: "",
     email: ""
 }
 
