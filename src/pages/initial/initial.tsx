@@ -1,5 +1,5 @@
 import InitialView from "./initialView";
-import { google } from "../../firebase-config";
+import { google, auth } from "../../firebase-config";
 import { getAuth, signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../redux/states/user";
@@ -20,8 +20,7 @@ const Initial = () => {
   const email = useField({type: 'email'})
 
   const logIn = async () => {
-    const auth = getAuth();
-    const result = await signInWithPopup(auth, google)
+    await signInWithPopup(auth, google)
       .then((resp) => {
         const userLogged = {
           name: resp.user.displayName,
@@ -39,15 +38,16 @@ const Initial = () => {
   async function handleUser(event: FormEvent) {
     event.preventDefault();
     const requestedUser = {
-      userName: userName.value,
+      email: email.value,
       password: password.value,
     }
-    const resp = await apiUsers.loginUser(requestedUser);
-    if(resp.length) {
+    const resp = await apiUsers.customLogin(requestedUser)
+    console.log(resp)
+    if(resp) {
       const userLogged = {
-        name:   resp[0].userName,
-        id:     resp[0].id,
-        email:  resp[0].email,
+        name:   resp.displayName,
+        id:     resp.uid,
+        email:  resp.email,
       }
       dispatch(createUser(userLogged));
       navigate("/home");
@@ -56,20 +56,17 @@ const Initial = () => {
 
   async function handleNewUser(event: FormEvent) {
     event.preventDefault();
-    const newUserId = uuidv4()
     const newUser = {
-      userName: userName.value,
       name: `${name.value.trim()} ${lastName.value.trim()}`,
       email: email.value,
       password: password.value,
-      id: newUserId
     }
-    const resp = await apiUsers.post(newUser);
+    const resp = await apiUsers.customSignUp(newUser);
     if(resp) {
       const userLogged = {
-        name:   userName.value,
-        id:     newUserId,
-        email:  email.value,
+        name:   resp.displayName,
+        id:     resp.uid,
+        email:  resp.email,
       }
       dispatch(createUser(userLogged));
       navigate("/home");

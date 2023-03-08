@@ -5,10 +5,10 @@ import { useState, useEffect } from 'react';
 import apiNotes from '../../apis/notes';
 import { NoteModel } from '../../models/NoteModel';
 import { auth } from '../../firebase-config';
-import { store } from '../../redux/store';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { resetUser } from '../../redux/states/user';
+import { store } from '../../redux/store';
 
 export const HomePage = () => {
   
@@ -16,31 +16,30 @@ export const HomePage = () => {
   const [notes, setNotes] = useState<Array<NoteModel>>([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { user } = store.getState();
 
   const addNote = () => {
     setViewModal(view => view = true);
   }
   
   const logOut = async () => {
-    const result = await auth
+    await auth
     .signOut()
-    .then((resp) => {
+    .then(() => {
       console.log("SESION CERRADA");
       dispatch(resetUser());
-      return navigate(0);
     })
     .catch((err) => console.log(err));
   };
   
-  useEffect(() => {
-    
-    const fetchData = async () => {
+  const fetchData = async () => {
 
-      const dataNotes = await apiNotes.get();
-      setNotes(dataNotes);
-    }
-    fetchData();
-  
+    const dataNotes = await apiNotes.get();
+    setNotes(dataNotes);
+  }
+
+  useEffect(() => {
+    fetchData();  
   }, [])
 
   return (

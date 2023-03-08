@@ -43,9 +43,9 @@ const InitialView = ({ logIn, handleUser, handleNewUser, mode, setMode, userName
           <div className="form-login">
             <form onSubmit={handleUser}>
               <input 
-                {...userName}
-                name={"UserName"}
-                placeholder={"Usuario"}
+                {...email}
+                name={"email"}
+                placeholder={"Email"}
               />
               <input 
                 {...password}

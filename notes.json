@@ -1,48 +1,44 @@
 {
-  "notes": [
+  "notes" : [
     {
       "id": 0,
       "title": "Spider-Man",
-      "description": "Nerd que con la picadura de una araña obtuvo extraordinarios poderes.\nAlias Spid",
+      "description": "Nerd que con la picadura de una araña obtuvo extraordinario\nAlias Spid",
       "isEditable": false,
-      "isEditMode": false
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
     },
     {
       "id": 1,
       "title": "Ant man",
       "description": "EL PRIMO DE BATMA",
       "isEditable": false,
-      "isEditMode": false
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
     },
     {
       "id": 2,
       "title": "Iron-Man",
       "description": "Filantropo, multimillonario, playboy",
       "isEditable": false,
-      "isEditMode": false
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
     },
     {
       "id": 3,
       "title": "Thor",
       "description": "Dios del trueno, superfuerza, casi indestructible",
       "isEditable": false,
-      "isEditMode": false
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
     },
     {
       "id": 4,
       "title": "Hulk",
       "description": "Super fuerza obtenida bajo rayos GAMMA",
       "isEditable": false,
-      "isEditMode": false
-    }
-  ],
-  "users": [
-    {
-      "userName": "ElPucho",
-      "name": "Gonzalo Delbazi",
-      "email": "gonzalodelbazi@gmail.com",
-      "password": "gonza1998",
-      "id": "2e28d948-8bee-4022-9ffc-9630fda61c3d"
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
     }
   ]
 }
