@@ -1,46 +1,54 @@
 import './home.scss';
 import NoteComponent from '../../components/note/note';
+import HomePageView from '../../pages/home/homeView';
 import { useState, useEffect } from 'react';
 import apiNotes from '../../apis/notes';
 import { NoteModel } from '../../models/NoteModel';
+import { auth } from '../../firebase-config';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { resetUser } from '../../redux/states/user';
+import { store } from '../../redux/store';
 
 export const HomePage = () => {
   
   const [viewModal, setViewModal] = useState(false);
   const [notes, setNotes] = useState<Array<NoteModel>>([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = store.getState();
 
   const addNote = () => {
     setViewModal(view => view = true);
-    
   }
-  useEffect(() => {
-    
-    const fetchData = async () => {
-
-      const dataNotes = await apiNotes.get();
-      setNotes(dataNotes);
-    }
-    fetchData();
   
+  const logOut = async () => {
+    await auth
+    .signOut()
+    .then(() => {
+      console.log("SESION CERRADA");
+      dispatch(resetUser());
+    })
+    .catch((err) => console.log(err));
+  };
+  
+  const fetchData = async () => {
+
+    const dataNotes = await apiNotes.get();
+    setNotes(dataNotes);
+  }
+
+  useEffect(() => {
+    fetchData();  
   }, [])
 
   return (
     <>
-      <div className="button-container">
-        <button className="add-note-btn pointer" onClick={addNote}>Agregar nota</button>
-      </div>
-      <div className='notes-box'>
-      {
-        function() {
-          let arrNotes: JSX.Element[] = [];
-        notes.forEach((note, idx)=>{
-          arrNotes.push(<NoteComponent key={idx} title={note.title} description={note.description} />);
-        });
-        return arrNotes;
-      }()
-    }
-    </div>
-
+      <HomePageView
+        notes={notes}
+        addNote={addNote}
+        logOut={logOut}
+      />
     </>
   )
 };

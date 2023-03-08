@@ -1,40 +1,44 @@
 {
-   "notes": 
-   [
-        {
-            "id": 0,
-            "title": "Spider-Man",
-            "description": "Persona que con la picadura de una araña obtuvo extraordinarios poderes",
-            "isEditable": false,
-            "isEditMode": false
-        },
-        {
-            "id": 1,
-            "title": "Ant-man",
-            "description": "Capacidad de volverse pequeño al tamaño de una hormiga",
-            "isEditable": false,
-            "isEditMode": false
-        },
-        {
-            "id": 2,
-            "title": "Iron-Man",
-            "description": "Filantropo, multimillonario, playboy",
-            "isEditable": false,
-            "isEditMode": false
-        },
-        {
-            "id": 3,
-            "title": "Thor",
-            "description": "Dios del trueno, superfuerza, casi indestructible",
-            "isEditable": false,
-            "isEditMode": false
-        },
-        {
-            "id": 4,
-            "title": "Hulk",
-            "description": "Super fuerza obtenida bajo rayos GAMMA",
-            "isEditable": false,
-            "isEditMode": false
-        }
-    ]
+  "notes" : [
+    {
+      "id": 0,
+      "title": "Spider-Man",
+      "description": "Nerd que con la picadura de una araña obtuvo extraordinario\nAlias Spid",
+      "isEditable": false,
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+    },
+    {
+      "id": 1,
+      "title": "Ant man",
+      "description": "EL PRIMO DE BATMA",
+      "isEditable": false,
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+    },
+    {
+      "id": 2,
+      "title": "Iron-Man",
+      "description": "Filantropo, multimillonario, playboy",
+      "isEditable": false,
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+    },
+    {
+      "id": 3,
+      "title": "Thor",
+      "description": "Dios del trueno, superfuerza, casi indestructible",
+      "isEditable": false,
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+    },
+    {
+      "id": 4,
+      "title": "Hulk",
+      "description": "Super fuerza obtenida bajo rayos GAMMA",
+      "isEditable": false,
+      "isEditMode": false,
+      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+    }
+  ]
 }
