@@ -1,11 +1,11 @@
 export interface UserPublicData {
-    id: number;
+    id: string;
     name: string;
     userName: string;
     email: string;
 }
 export interface UserPrivateData {
-    id: number;
+    id: string;
     userName: string;
     name: string;
     email: string;

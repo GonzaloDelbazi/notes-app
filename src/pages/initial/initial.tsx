@@ -1,13 +1,12 @@
 import InitialView from "./initialView";
 import { google, auth } from "../../firebase-config";
-import { getAuth, signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { createUser } from "../../redux/states/user";
 import { useNavigate } from "react-router-dom";
 import { FormEvent, useState } from "react";
 import { useField } from "../../hooks/index"
 import apiUsers from "../../apis/users";
-import { v4 as uuidv4 } from 'uuid';
 
 const Initial = () => {
   const navigate = useNavigate();
@@ -27,10 +26,9 @@ const Initial = () => {
           id: resp.user.uid,
           email: resp.user.email,
         };
-        dispatch(createUser(userLogged));
-        navigate("/home");
-      })
-      .catch((err) => {
+        dispatch(createUser(userLogged))
+        goHome();
+      }).catch((err) => {
         console.log(err);
       });
   };
@@ -42,15 +40,18 @@ const Initial = () => {
       password: password.value,
     }
     const resp = await apiUsers.customLogin(requestedUser)
-    console.log(resp)
     if(resp) {
       const userLogged = {
         name:   resp.displayName,
         id:     resp.uid,
         email:  resp.email,
       }
-      dispatch(createUser(userLogged));
-      navigate("/home");
+      const saveUser = new Promise((resolve, reject) => {
+        resolve(dispatch(createUser(userLogged)))
+        reject("Error no se pudo guardar usuario en redux")
+      });
+      saveUser.then(goHome)
+      .catch(err => console.log(err))
     }
   }
 
@@ -71,6 +72,10 @@ const Initial = () => {
       dispatch(createUser(userLogged));
       navigate("/home");
     }
+  }
+  
+  function goHome() {
+    navigate("/home");
   }
 
   return <InitialView 

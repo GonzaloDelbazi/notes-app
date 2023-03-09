@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./note.scss";
 import { NoteModel } from "../../models/NoteModel";
 import apiNotes from "../../apis/notes";
@@ -11,10 +11,6 @@ const NoteComponent = ({note}:any) => {
   const dismiss = () => {
     setIsOpen(false);
   };
-
-  useEffect(() => {
-    // setLocalNote(note)
-  }, [])
 
   const openModal = () => {
     setIsOpen(true);

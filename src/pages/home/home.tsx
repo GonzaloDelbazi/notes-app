@@ -1,5 +1,4 @@
 import './home.scss';
-import NoteComponent from '../../components/note/note';
 import HomePageView from '../../pages/home/homeView';
 import { useState, useEffect } from 'react';
 import apiNotes from '../../apis/notes';
@@ -28,13 +27,14 @@ export const HomePage = () => {
     .then(() => {
       console.log("SESION CERRADA");
       dispatch(resetUser());
+      navigate("/login")
     })
     .catch((err) => console.log(err));
   };
   
   const fetchData = async () => {
-
-    const dataNotes = await apiNotes.get();
+    console.log(user)
+    const dataNotes = await apiNotes.get(user.id);
     setNotes(dataNotes);
   }
 
