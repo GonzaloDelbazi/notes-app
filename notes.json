@@ -1,12 +1,12 @@
 {
-  "notes" : [
+  "notes": [
     {
       "id": 0,
       "title": "Spider-Man",
-      "description": "Nerd que con la picadura de una araña obtuvo extraordinario\nAlias Spid",
+      "description": "Nerd que con la picadura de una araña obtuvo extraordinar",
       "isEditable": false,
       "isEditMode": false,
-      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+      "idOwner": "B8ZK2WYKyROvkiFI0gUTBBttUaB2"
     },
     {
       "id": 1,
@@ -14,7 +14,7 @@
       "description": "EL PRIMO DE BATMA",
       "isEditable": false,
       "isEditMode": false,
-      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+      "idOwner": "B8ZK2WYKyROvkiFI0gUTBBttUaB2"
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "description": "Filantropo, multimillonario, playboy",
       "isEditable": false,
       "isEditMode": false,
-      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+      "idOwner": "B8ZK2WYKyROvkiFI0gUTBBttUaB2"
     },
     {
       "id": 3,
@@ -30,7 +30,7 @@
       "description": "Dios del trueno, superfuerza, casi indestructible",
       "isEditable": false,
       "isEditMode": false,
-      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+      "idOwner": "B8ZK2WYKyROvkiFI0gUTBBttUaB2"
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "description": "Super fuerza obtenida bajo rayos GAMMA",
       "isEditable": false,
       "isEditMode": false,
-      "idOwner": "QJ8dkjHLN0Zx7YGHbCEbf1C2DTL2"
+      "idOwner": "B8ZK2WYKyROvkiFI0gUTBBttUaB2"
     }
   ]
 }

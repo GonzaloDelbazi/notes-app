@@ -16,9 +16,9 @@ const NoteComponent = ({note}:any) => {
     setIsOpen(true);
   };
 
-  const modifyNote = async (e: any) => {
-    setLocalNote({...localNote, description: e.target.value});
-    const resp = await apiNotes.updateNote(localNote);
+  const modifyNote = async (e: any, property: string) => {
+    setLocalNote({...localNote, [property]: e.target.value});
+    await apiNotes.updateNote(localNote);
   }
 
   return (
@@ -32,14 +32,14 @@ const NoteComponent = ({note}:any) => {
           <div className="container">
             <div className="header-note">
               <div className="title-container">
-                <span className="span-title">{note.title}</span>
+                <textarea className="input-title" name="name" value={localNote.title} onChange={(e) => modifyNote(e, "title")} />
                 <i className="fas fa-xmark pointer" onClick={dismiss}></i>
               </div>
             </div>
             <div className="body-container">
               <div className="description-container">
                 <div className="description">
-                  <textarea className="input-description" name="name" onChange={(e) => modifyNote(e)} value={localNote.description} />
+                  <textarea className="input-description" name="name" value={localNote.description} onChange={(e) => modifyNote(e, "description")} />
                 </div>
               </div>
             </div>
