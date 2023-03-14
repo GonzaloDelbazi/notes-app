@@ -10,16 +10,10 @@ import { resetUser } from '../../redux/states/user';
 import { store } from '../../redux/store';
 
 export const HomePage = () => {
-  
-  const [viewModal, setViewModal] = useState(false);
   const [notes, setNotes] = useState<Array<NoteModel>>([]);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = store.getState();
-
-  const addNote = () => {
-    setViewModal(view => view = true);
-  }
   
   const logOut = async () => {
     await auth
@@ -38,6 +32,25 @@ export const HomePage = () => {
     setNotes(dataNotes);
   }
 
+  const onCreateNote = async () => {
+    const newNote = {
+      id: notes.length,
+      title: '',
+      description: '',
+      isEditable: true,
+      idOwner: user.id,
+    }
+    await apiNotes.create(newNote);
+    const dataNotes = await apiNotes.get(user.id);
+    setNotes(dataNotes);
+  }
+
+  const onDeleteNote = async (id: number) => {
+    await apiNotes.delete(id);
+    const dataNotes = await apiNotes.get(user.id);
+    setNotes(dataNotes);
+  }
+
   useEffect(() => {
     fetchData();  
   }, [])
@@ -46,7 +59,8 @@ export const HomePage = () => {
     <>
       <HomePageView
         notes={notes}
-        addNote={addNote}
+        addNote={onCreateNote}
+        onDeleteNote={onDeleteNote}
         logOut={logOut}
       />
     </>
