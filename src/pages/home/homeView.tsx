@@ -5,11 +5,12 @@ interface homeProps {
 
 	notes: Array<NoteModel>
 	addNote: () => void
+  onDeleteNote: (id: number) => void
 	logOut: () => void
 }
 
 
-const HomePageView = ({notes, addNote, logOut}:homeProps) => {
+const HomePageView = ({notes, addNote, onDeleteNote, logOut}:homeProps) => {
   return (
     <>
       <div className="button-container">
@@ -28,6 +29,8 @@ const HomePageView = ({notes, addNote, logOut}:homeProps) => {
               <NoteComponent
                 key={idx}
 								note={{id: note.id, title: note.title, description: note.description}}
+                isCreate={note.isEditable}
+                onDeleteNote={onDeleteNote}
               />
             );
           });
