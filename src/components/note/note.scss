@@ -8,7 +8,7 @@
 }
 
 .mini-modal {
-    @extend .base-modal;
+    @extend .base-modal, .box-shadow;
     margin: 0;
     height: 14rem;
     border: 0.1rem solid $pastel-color-light-green;
@@ -18,11 +18,12 @@
 }
 
 .modal {
-    @extend .base-modal;
+    @extend .base-modal, .box-shadow;
     position: absolute;
     height: 50vh;
     width: 50vw;
     background-color: #ffef84;
+    transition: "all .2s";
     animation: openNote 0.5s ease-in-out;
 }
 

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { UserPublicData } from "../../models/User.model";
 
 export const EmptyUserState: UserPublicData = {
-    id: 0,
+    id: "",
     name: "",
     userName: "",
     email: ""

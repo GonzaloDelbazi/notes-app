@@ -1,16 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { Reducer } from '../models/Reducer';
-import { auth } from '../firebase-config';
 import { UserPublicData } from '../models/User.model';
 import userSliceReducer from './states/user';
+import notesSliceReducer from './states/notes';
+import { NoteModel } from '../models/NoteModel';
 
 export interface AppStore {
-    user: UserPublicData
+    user: UserPublicData,
+    notes: NoteModel[]
 }
 
 export const store = configureStore<AppStore>({
     reducer:{
-        user: userSliceReducer 
+        user: userSliceReducer,
+        notes: notesSliceReducer
     }
 });
 

@@ -4,23 +4,14 @@ import { NoteModel } from "../../models/NoteModel";
 interface homeProps {
 
 	notes: Array<NoteModel>
-	addNote: () => void
-  onDeleteNote: (id: number) => void
+  onDeleteNote: (id: string) => void
 	logOut: () => void
 }
 
 
-const HomePageView = ({notes, addNote, onDeleteNote, logOut}:homeProps) => {
+const HomePageView = ({notes, onDeleteNote, logOut}:homeProps) => {
   return (
     <>
-      <div className="button-container">
-        <button className="add-note-btn pointer" onClick={() => addNote()}>
-          Agregar nota
-        </button>
-        <button className="danger-btn pointer" onClick={() => logOut()}>
-          Cerrar Sesion
-        </button>
-      </div>
       <div className="notes-box">
         {(function () {
           let arrNotes: JSX.Element[] = [];
@@ -28,7 +19,7 @@ const HomePageView = ({notes, addNote, onDeleteNote, logOut}:homeProps) => {
             arrNotes.push(
               <NoteComponent
                 key={idx}
-								note={{id: note.id, title: note.title, description: note.description}}
+								note={{id: note._id, title: note.title, description: note.description}}
                 isCreate={note.isEditable}
                 onDeleteNote={onDeleteNote}
               />

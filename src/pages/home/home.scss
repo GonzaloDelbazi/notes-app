@@ -1,5 +1,10 @@
 @import '../../styles/global.scss';
 
+body {
+    background: linear-gradient(45deg, #001c33 0%, $theme1-color-primary 30%, $theme1-color-ternary 50%, $theme1-color-secondary 80%, #001c33 100%);
+    background-color: #001c33;
+    height: 100vh;
+}
 .add-note-btn{
     width: 20%;
     padding: 10px;
@@ -23,10 +28,14 @@
     text-align: center;
 }
 
+
+
 .notes-box {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 5rem;
     width: 50%;
+    height: 100%;
     margin: auto;
 }

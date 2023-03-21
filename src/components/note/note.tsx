@@ -6,15 +6,18 @@ import apiNotes from "../../apis/notes";
 interface props {
   note: any,
   isCreate: boolean
-  onDeleteNote: (value: number) => void
+  onDeleteNote: (value: string) => void
 }
 
 const NoteComponent = ({note, onDeleteNote, isCreate = false}:props) => {
   const [isOpen, setIsOpen] = useState(isCreate);
   const [localNote, setLocalNote] = useState<NoteModel>(note)
 
-  const dismiss = () => {
-    setIsOpen(false);
+  const dismiss = async () => {
+    if(localNote.title && localNote.description) {
+      return setIsOpen(false);
+    }
+    await onDeleteNote(note.id)
   };
 
   const openModal = () => {
@@ -28,10 +31,6 @@ const NoteComponent = ({note, onDeleteNote, isCreate = false}:props) => {
       setLocalNote({...localNote, [property]: e.target.value});
     }
     await apiNotes.updateNote(localNote);
-  }
-
-  const deleteNote = async () => {
-    await apiNotes.delete(note.id)
   }
 
   return (
