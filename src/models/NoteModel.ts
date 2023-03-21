@@ -1,5 +1,5 @@
 export class NoteModel{
-    id?: number;
+    _id?: string;
     title: string = '';
     description: string = '';
     isEditable: boolean = false;
