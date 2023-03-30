@@ -1,28 +1,23 @@
 import axios from "axios";
+import { API } from "../axios-config";
 import { NoteModel } from "../models/NoteModel";
-
-const final_url = 'http://localhost:3005/api';
 
 const apiNotes = {
 
-    async get(id: string){        
-        const resp = await axios.get(`${final_url}/notes/${id}`);
+    async get(id: string) {
+        const resp = await API.get(`/notes/${id}`);
         return resp.data;
     },
     async create(note: any) {
-        const resp = await axios.post(`${final_url}/notes`, note);
-        console.log(resp)
+        const resp = await API.post(`/notes`, note);
         return resp.data;
     },
     async delete(id: string) {
-        const resp = await axios.delete(`${final_url}/notes/${id}`);
-        console.log(resp)
+        const resp = await API.delete(`/notes/${id}`);
         return resp.data;
     },
-
-    async updateNote(note: NoteModel){
-        const resp = await axios.patch(`${final_url}/notes/${note._id}`, note);
-        // const resp = await axios.patch(`${final_url}/notes/${note.id}?idOwner=${user.id}`, note);
+    async updateNote(note: NoteModel) {
+        const resp = await API.put(`/notes/${note._id}`, {title: note.title, description: note.description, isEditable: note.isEditable});
         return resp.data;
     }
 

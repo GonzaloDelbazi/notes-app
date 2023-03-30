@@ -16,6 +16,15 @@
   100% {
     scale: 1;
   }
+}
+
+@keyframes closeNote {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 0;
+  }
 } 
 
 @keyframes fadeIn {

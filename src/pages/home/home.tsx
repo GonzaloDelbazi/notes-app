@@ -28,8 +28,8 @@ export const HomePage = () => {
   };
 
   const onDeleteNote = async (id: string) => {
-    await apiNotes.delete(id);
-    const dataNotes = await apiNotes.get(user.id);
+    const resp = await apiNotes.delete(id);
+    const dataNotes = notes.filter(note => note._id != id) 
     store.dispatch(setNotes(dataNotes))
   }
 

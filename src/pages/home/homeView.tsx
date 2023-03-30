@@ -19,7 +19,7 @@ const HomePageView = ({notes, onDeleteNote, logOut}:homeProps) => {
             arrNotes.push(
               <NoteComponent
                 key={idx}
-								note={{id: note._id, title: note.title, description: note.description}}
+								note={{_id: note._id, title: note.title, description: note.description}}
                 isCreate={note.isEditable}
                 onDeleteNote={onDeleteNote}
               />
