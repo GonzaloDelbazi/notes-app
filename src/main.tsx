@@ -4,10 +4,11 @@ import App from './App'
 import { auth } from './firebase-config'
 import './index.scss'
 import { setNotes } from './redux/states/notes'
-import { createUser } from './redux/states/user'
+import { createUser, setUserStatusLoading } from './redux/states/user'
 import { store } from './redux/store'
+import { UserStorage } from './storage/userStorage'
 
-
+store.dispatch(setUserStatusLoading(true))
 auth.onAuthStateChanged(async (user) => {
     if(user) {
         const userLogged = {
@@ -16,6 +17,7 @@ auth.onAuthStateChanged(async (user) => {
             email: user.email,
         };
         store.dispatch(createUser(userLogged))
+        UserStorage.setUserStorage(user);
         const dataNotes = await apiNotes.get(user.uid);
         store.dispatch(setNotes(dataNotes))
     }

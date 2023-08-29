@@ -2,11 +2,12 @@ import InitialView from "./initialView";
 import { google, auth } from "../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { createUser } from "../../redux/states/user";
+import { createUser, setUserStatusLoading } from "../../redux/states/user";
 import { useNavigate } from "react-router-dom";
 import { FormEvent, useState } from "react";
 import { useField } from "../../hooks/index"
 import apiUsers from "../../apis/users";
+import { UserStorage } from "../../storage/userStorage";
 
 const Initial = () => {
   const navigate = useNavigate();
@@ -27,6 +28,8 @@ const Initial = () => {
           email: resp.user.email,
         };
         dispatch(createUser(userLogged))
+        UserStorage.setUserStorage(userLogged);
+        dispatch(setUserStatusLoading(true));
         goHome();
       }).catch((err) => {
         console.log(err);
@@ -73,22 +76,22 @@ const Initial = () => {
       navigate("/home");
     }
   }
-  
+
   function goHome() {
     navigate("/home");
   }
 
-  return <InitialView 
-            logIn={logIn} 
-            handleUser={handleUser} 
-            handleNewUser={handleNewUser} 
-            mode={mode} 
-            setMode={setMode} 
-            userName={userName} 
-            name={name} 
-            lastName={lastName} 
-            password={password} 
-            email={email} 
+  return <InitialView
+            logIn={logIn}
+            handleUser={handleUser}
+            handleNewUser={handleNewUser}
+            mode={mode}
+            setMode={setMode}
+            userName={userName}
+            name={name}
+            lastName={lastName}
+            password={password}
+            email={email}
           />;
 };
 

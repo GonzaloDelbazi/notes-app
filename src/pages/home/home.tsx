@@ -13,9 +13,8 @@ import { setNotes } from '../../redux/states/notes';
 export const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const notes = useSelector((store: AppStore) => store.notes)
-  const { user } = store.getState();
-  
+  const { notes, authState } = useSelector((store: AppStore) => store)
+
   const logOut = async () => {
     await auth
     .signOut()
@@ -29,7 +28,7 @@ export const HomePage = () => {
 
   const onDeleteNote = async (id: string) => {
     const resp = await apiNotes.delete(id);
-    const dataNotes = notes.filter(note => note._id != id) 
+    const dataNotes = notes.filter(note => note._id != id)
     store.dispatch(setNotes(dataNotes))
   }
 

@@ -5,14 +5,17 @@ import notesSliceReducer from './states/notes';
 import { NoteModel } from '../models/NoteModel';
 
 export interface AppStore {
-    user: UserPublicData,
+    authState: {
+        user: UserPublicData,
+        userStatusLoading: boolean
+    }
     notes: NoteModel[]
 }
 
 export const store = configureStore<AppStore>({
     reducer:{
-        user: userSliceReducer,
-        notes: notesSliceReducer
+        authState: userSliceReducer,
+        notes: notesSliceReducer,
     }
 });
 

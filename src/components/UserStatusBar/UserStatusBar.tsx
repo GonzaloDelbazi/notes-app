@@ -9,8 +9,8 @@ import UserStatusBarView from './UserStatusBarView'
 
 
 function UserStatusBar() {
-  
-  const { user } = store.getState();
+
+  const { authState } = store.getState();
   const navigate = useNavigate();
 
   const onCreateNote = async () => {
@@ -18,10 +18,10 @@ function UserStatusBar() {
       title: '',
       description: '',
       isEditable: true,
-      idOwner: user.id,
+      idOwner: authState.user.id,
     }
     await apiNotes.create(newNote);
-    const dataNotes = await apiNotes.get(user.id);
+    const dataNotes = await apiNotes.get(authState.user.id);
     store.dispatch(setNotes(dataNotes));
   }
 
